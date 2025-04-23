@@ -1,0 +1,14 @@
+FROM confluentinc/cp-kafka-connect:latest
+
+# Create plugin directory
+RUN mkdir -p /usr/share/java/kafka-connect-plugins
+
+# Copy the connector JAR to the plugin directory
+COPY ./kafka-connect-runner/plugins/mongodb-source-connector-1.0-SNAPSHOT.jar /usr/share/java/kafka-connect-plugins/
+
+# Copy config files
+COPY ./kafka-connect-runner/connect-standalone.properties /etc/kafka/
+COPY ./kafka-connect-runner/mongodb-source-connector.properties /etc/kafka/
+
+# Set plugin path in worker properties
+ENV CONNECT_PLUGIN_PATH=/usr/share/java/kafka-connect-plugins
