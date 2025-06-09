@@ -1,4 +1,5 @@
 # 🧩 MongoDB Source Connector for Apache Kafka (Standalone)
+# By: Omar Waseem
 
 This project is a custom MongoDB Source Connector** built in Java to stream data from MongoDB into a Kafka topic, using Kafka Connect in standalone mode and Docker.
 
